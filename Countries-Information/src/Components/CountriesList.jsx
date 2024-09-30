@@ -2,11 +2,12 @@ import React from "react";
 import countriesData from "../countriesData";
 import CountryCard from "./CountryCard";
 
-const CountriesList = () => {
+const CountriesList = ({ query }) => {
+  // const filteredCountries = countriesData.filter((country) => country.name.common.includes('India') );
   return (
     <div className="countries-container">
       {
-        countriesData.map((country) => {
+        countriesData.filter((country) => country.name.common.toLowerCase().includes(query)).map((country) => {
         return (
           <CountryCard
             key={country.name.common}
